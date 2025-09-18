@@ -23,6 +23,7 @@ const StoryWeaver = () => {
   const [productName, setProductName] = useState("");
   const [craftDetails, setCraftDetails] = useState("");
   const [selectedStory, setSelectedStory] = useState<number | null>(null);
+  const [uploadedImages, setUploadedImages] = useState<File[]>([]);
   const { toast } = useToast();
 
   const handleGenerateStories = async () => {
@@ -54,6 +55,18 @@ const StoryWeaver = () => {
         description: "Your AI-powered product stories are ready. Choose your favorite!",
       });
     }, 3000);
+  };
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files) {
+      const newImages = Array.from(files);
+      setUploadedImages(prev => [...prev, ...newImages]);
+      toast({
+        title: "Images Uploaded!",
+        description: `${newImages.length} image(s) added to your craft story.`,
+      });
+    }
   };
 
   const copyToClipboard = (story: string, index: number) => {
@@ -114,14 +127,25 @@ const StoryWeaver = () => {
                 />
               </div>
 
-              <div className="border-2 border-dashed border-primary/20 rounded-lg p-6 text-center space-y-2">
+              <div 
+                className="border-2 border-dashed border-primary/20 rounded-lg p-6 text-center space-y-2 cursor-pointer hover:border-primary/40 transition-colors"
+                onClick={() => document.getElementById('image-upload')?.click()}
+              >
                 <Upload className="h-8 w-8 text-primary mx-auto" />
                 <div className="text-sm text-muted-foreground">
                   <span className="font-medium text-primary">Upload photos</span> of your craft process
                 </div>
                 <div className="text-xs text-muted-foreground">
-                  Optional: Add images to enhance your story
+                  {uploadedImages.length > 0 ? `${uploadedImages.length} image(s) selected` : "Optional: Add images to enhance your story"}
                 </div>
+                <input
+                  id="image-upload"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  className="hidden"
+                  onChange={handleImageUpload}
+                />
               </div>
 
               <Button 
