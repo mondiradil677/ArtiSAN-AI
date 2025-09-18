@@ -1,7 +1,28 @@
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 import artisanLogo from "@/assets/artisan-logo.png";
 
 const Header = () => {
+  const { toast } = useToast();
+
+  const handleSignIn = () => {
+    toast({
+      title: "Sign In",
+      description: "Sign in functionality coming soon! For now, try the AI Story Weaver below.",
+    });
+  };
+
+  const handleGetStarted = () => {
+    const storyWeaverSection = document.getElementById('story-weaver');
+    if (storyWeaverSection) {
+      storyWeaverSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    toast({
+      title: "Let's Get Started!",
+      description: "Scroll down to try our AI Story Weaver and create your first compelling product story.",
+    });
+  };
+
   return (
     <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4">
@@ -27,8 +48,8 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Button variant="ghost">Sign In</Button>
-            <Button variant="hero">Get Started Free</Button>
+            <Button variant="ghost" onClick={handleSignIn}>Sign In</Button>
+            <Button variant="hero" onClick={handleGetStarted}>Get Started Free</Button>
           </div>
         </div>
       </div>
