@@ -2,9 +2,12 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Powered-blue.svg)](https://cloud.google.com)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/your-username/artisan-ai/issues)
+[![Vite](https://img.shields.io/badge/Vite-Build%20Tool-blueviolet)](https://vitejs.dev/)
+[![shadcn/ui](https://img.shields.io/badge/shadcn%2FUI-Component%20Library-blue)](https://ui.shadcn.com/)
 
 ## 🌟 Overview
+
+<img width="1858" height="911" alt="Artisan" src="https://github.com/user-attachments/assets/978ee9a6-fc36-4684-bc90-261cf2191397" />
 
 ArtiSAN.ai is an AI-powered SaaS platform designed to empower local artisans by bridging the gap between traditional craftsmanship and the modern digital marketplace. Our solution leverages Google Cloud's generative AI to help artisans create compelling product narratives, enhance their visual content, and manage multi-platform listings—all from a single, intuitive dashboard.
 
@@ -12,25 +15,26 @@ ArtiSAN.ai is an AI-powered SaaS platform designed to empower local artisans by 
 
 ## 🚀 Unique Selling Proposition
 
-ArtiSAN.ai is the only platform that uses generative AI as a **"story translator,"** instantly converting the soul and narrative of traditional craftsmanship into the language of the modern digital market, proven to **increase sales conversions by 153%.**
+ArtiSAN.ai is the only platform that uses generative AI as a **story translator**, instantly converting the soul and narrative of traditional craftsmanship into the language of the modern digital market, proven to **increase sales conversions by 153%.**
 
 ## ✨ Core Features
 
 -   **🤖 AI Story Weaver:** Generate authentic, SEO-friendly product stories and descriptions in seconds from simple artisan inputs.
 -   **🖼️ AI Visual Enhancer:** Automatically remove backgrounds and enhance product photos using Google's Vision AI.
--   **📦 Unified Listings Manager:** Push optimized listings to multiple marketplaces (Etsy, Amazon, etc.) with one click.
--   **📈 Market Insight Engine:** Receive actionable alerts on trending colors, products, and keywords based on real-time data.
+-   **📦 Unified Listings Manager:** Push optimised listings to multiple marketplaces (Etsy, Amazon, etc.) with one click.
+-   **📈 Market Insight Engine:** Receive actionable alerts on trending colours, products, and keywords based on real-time data.
 -   **📊 Embedded Analytics Dashboard:** Track performance, sales, and customer engagement metrics.
 
 ## 🛠️ Technology Stack
 
 **Frontend:**
 -   **Framework:** React.js with TypeScript
--   **UI Library:** Material-UI (MUI)
+-   **Build Tool:** Vite
+-   **UI Library:** shadcn/ui with Tailwind CSS
 -   **Hosting:** Firebase Hosting
 
 **Backend & Cloud:**
--   **Runtime:** Node.js with Express.js
+-   **Runtime:** Node.js
 -   **Platform:** Google Cloud Run (Serverless)
 -   **API Gateway:** Google Cloud API Gateway
 -   **Database:** Firestore
@@ -46,45 +50,75 @@ ArtiSAN.ai is the only platform that uses generative AI as a **"story translator
 -   **CI/CD:** Cloud Build
 -   **Monitoring:** Google Cloud Operations (Monitoring & Logging)
 -   **Caching:** Memorystore for Redis
+-   **Package Manager:** Bun
 
 ## 📋 Project Status
 
 **Current Version:** MVP (Minimum Viable Product) - Phase 1
 
-**Status:** ✅ Alpha Pilot Completed (See [Pilot Results](#pilot-results))
+**Status:** ✅ Alpha Pilot Completed
 
-**Focus:** The MVP is focused on the core "AI Story Weaver" feature, enabling artisans to generate product stories from images and text inputs.
+**Focus:** The MVP is focused on the core **"AI Story Weaver"** feature, allowing artisans to generate product stories from images and text inputs.
 
 ## 📁 Repository Structure
 
 ```
-artisan-ai/
-├── frontend/                 # React.js application
-│   ├── public/
-│   ├── src/
-│   │   ├── components/       # Reusable UI components
-│   │   ├── pages/           # Main pages (Dashboard, Story Creator)
-│   │   ├── services/        # API service calls
-│   │   └── styles/          # Global styles and themes
-│   └── package.json
-├── backend/                  # Node.js/Express API
-│   ├── src/
-│   │   ├── controllers/     # Route controllers
-│   │   ├── routes/          # API routes
-│   │   ├── services/        # Business logic & Google AI integration
-│   │   └── models/          # Data models
-│   └── package.json
-├── cloud-functions/          # Google Cloud Functions (if any)
-├── docs/                     # Additional documentation
-└── README.md
+RSN601KRI/
+├── public/                 # Static assets
+├── src/                    # Source code
+│   ├── components/         # Reusable UI components (shadcn/ui based)
+│   ├── lib/               # Utility libraries
+│   ├── App.tsx            # Main application component
+│   └── main.tsx           # Application entry point
+├── .gitignore             # Git ignore rules
+├── bun.lockb              # Bun lockfile
+├── components.json        # shadcn/ui components configuration
+├── eslint.config.js       # ESLint configuration
+├── index.html             # HTML entry point
+├── package-lock.json      # npm lockfile (if used)
+├── package.json           # Project dependencies and scripts
+├── postcss.config.js      # PostCSS configuration
+├── tailwind.config.ts     # Tailwind CSS configuration
+├── tsconfig.app.json      # TypeScript configuration for app
+├── tsconfig.json          # TypeScript root configuration
+├── tsconfig.node.json     # TypeScript configuration for Node
+└── vite.config.ts         # Vite configuration
+```
+
+## 🔄 Architecture & Workflow
+
+The following diagram illustrates the core workflow for the AI Story Weaver feature:
+
+```mermaid
+sequenceDiagram
+    participant A as Artisan
+    participant UI as React UI (Vite)
+    participant API as Cloud Run API
+    participant VAI as Vertex AI
+    participant VISION as Vision AI
+    participant FS as Firestore
+
+    A->>UI: Enters Product Details & Uploads Image
+    UI->>API: POST /generate-story (JSON + Image)
+    Note over UI,API: Request sent via API Gateway
+
+    API->>VISION: Send Image for Analysis
+    VISION-->>API: Returns Labels (e.g., "shawl", "paisley")
+    API->>VAI: Craft Prompt with Text + Labels
+    VAI-->>API: Returns 3 Generated Story Options
+
+    API->>FS: Store Request & Stories (Optional)
+    FS-->>API: Confirmation
+
+    API-->>UI: Returns JSON with Story Options
+    UI-->>A: Displays Stories for Selection
 ```
 
 ## 🚦 Getting Started
 
 ### Prerequisites
 
--   Node.js (v18 or higher)
--   npm or yarn
+-   Node.js (v18 or higher) or Bun
 -   A Google Cloud Platform account with billing enabled
 -   Firebase project
 
@@ -92,44 +126,46 @@ artisan-ai/
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/artisan-ai.git
-    cd artisan-ai
+    git clone https://github.com/your-username/RSN601KRI.git
+    cd RSN601KRI
     ```
 
-2.  **Set up the Backend:**
+2.  **Install dependencies using Bun (or npm):**
     ```bash
-    cd backend
-    npm install
-    # Configure environment variables for GCP credentials, Firebase, etc.
-    cp .env.example .env
-    npm run dev
+    bun install
     ```
 
-3.  **Set up the Frontend:**
-    ```bash
-    cd ../frontend
-    npm install
-    npm start
+3.  **Configure Environment Variables:**
+    Create a `.env` file in the root directory and configure your keys:
+    ```env
+    VITE_FIREBASE_API_KEY=your_key
+    VITE_FIREBASE_AUTH_DOMAIN=your_domain
+    VITE_GOOGLE_CLOUD_PROJECT_ID=your_project_id
     ```
-    The frontend will run on `http://localhost:3000`.
+
+4.  **Run the development server:**
+    ```bash
+    bun run dev
+    ```
+    The frontend will run on `http://localhost:5173`.
 
 ### Deployment
 
-The application is designed for seamless deployment on Google Cloud:
--   Frontend: `firebase deploy`
--   Backend: CI/CD pipeline via Cloud Build deploys containers to Cloud Run.
+The application is designed for seamless deployment on Google Cloud. The Vite app can be built and deployed to Firebase Hosting.
+
+```bash
+bun run build
+firebase deploy
+```
 
 ## 🧪 Testing the AI Story Weaver
 
-The core functionality can be tested with sample inputs. Here are two examples:
+The core functionality can be tested with sample inputs. Here is an example:
 
 **Product Name:** `Terracotta Sunbird Whistle`
 **Artisan's Input:** `This is a traditional toy from my village in Bengal. We use local red clay and a special hand-pinching technique. It is fired in a wood-burning kiln. When you blow into it, it makes a beautiful, melodic whistle sound.`
 
-**Product Name:** `Warli Art Handmade Journal`
-**Artisan's Input:** `I paint the cover using the ancient Warli tribal art form. I use only a white natural pigment on handmade paper, depicting scenes of village life. Each design is drawn freehand from memory.`
-
-The AI will generate multiple story options for each product.
+The AI will generate multiple story options for the product.
 
 ## 📊 Pilot Results
 
